@@ -74,11 +74,39 @@ export default {
 
 <style lang="scss">
 
- *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+body{
+  /* width */
+::-webkit-scrollbar {
+
+  width: 10px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+  background:  rgb(48, 48, 48); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  
+  background: #555; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: #888; 
+}
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 #app {
 
