@@ -85,6 +85,5 @@ export default {
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   height: 100vh;
-  background-color: lightgray;
 }
 </style>

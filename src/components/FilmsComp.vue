@@ -34,11 +34,12 @@
 
     section{
 
-        background-color: black;
         .cont-cards{
 
             width: 90%;
             margin: 0 auto;
+            display: flex;
+            overflow-y: auto;
         }
     }
 

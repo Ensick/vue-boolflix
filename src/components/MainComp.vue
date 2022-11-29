@@ -29,4 +29,10 @@
 
 <style lang="scss" scoped>
 
+    main{
+
+        height: calc(100% - 100px);
+        background-color: rgb(48, 48, 48);
+    }
+
 </style>
