@@ -1,7 +1,7 @@
 <template>
     <section>
 
-        <CardComp/>
+        <CardComp v-for="(elem,index) in dataFilms" :key="index" :elem ="elem" :dataFilms = 'dataFilms'/>
 
     </section>
 </template>
@@ -17,6 +17,11 @@
 
             CardComp,
 
+        },
+
+        props: {
+
+            dataFilms: Array
         }
     }
 </script>

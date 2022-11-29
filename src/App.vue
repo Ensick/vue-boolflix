@@ -2,7 +2,7 @@
   <div id="app">
 
     <HeaderComp @Text="valueText"/>
-    <MainComp/>
+    <MainComp :dataFilms = 'arrayFilms'/>
 
   </div>
 </template>
@@ -27,22 +27,13 @@ export default {
 
     return{
 
+      arrayTvSeries:[],
       arrayFilms:[],
-
       api_key:'?api_key=40b9be3bc2bac6086df4f70ef377f1b4',
-      valueQuery:'all'
+      valueQuery:''
+
     } 
 
-  },
-
-  mounted() {
-
-    
-  },
-
-  beforeUpdate(){
-
-  
   },
 
   methods:{
@@ -51,10 +42,25 @@ export default {
 
       axios.get(`https://api.themoviedb.org/3/search/movie${this.api_key}&query=${this.valueQuery}`).then((response)=>{
 
-      this.arrayFilms = response.data.results
+      if(this.valueQuery == ''){
+
+        this.arrayFilms = []
+      }else{
+
+       this.arrayFilms = response.data.results
 
       console.log(this.arrayFilms);
+      }
+
+    })
+
+    axios.get(`https://api.themoviedb.org/3/search/tv${this.api_key}&query=${this.valueQuery}`).then((response)=>{
       
+      this.arrayTvSeries = ''
+
+      this.arrayTvSeries = response.data.results
+
+      console.log(this.arrayTvSeries);
 
     })
 

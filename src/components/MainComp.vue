@@ -1,8 +1,8 @@
 <template>
     <main>
         
-        <FilmsComp/>
-
+        <FilmsComp :dataFilms = 'dataFilms'/>
+        
     </main>
 </template>
 
@@ -18,6 +18,11 @@
 
             FilmsComp,
 
+        },
+
+        props:{
+
+            dataFilms: Array,
         }
     }
 </script>
