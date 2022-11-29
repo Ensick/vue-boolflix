@@ -1,6 +1,8 @@
 <template>
     <div class="card">
         <h1>{{elem.original_title}}</h1>
+        <!--  https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png  -->
+        <img :src="'https://image.tmdb.org/t/p/w342/'+elem.poster_path" alt="img">
     </div>
 </template>
 
@@ -21,10 +23,6 @@
 
 .card{
 
-    background-color: red;
-    height: 100px;
-    width: 100px;
-    padding: 10px;
 }
 
 </style>

@@ -30,7 +30,7 @@ export default {
       arrayTvSeries:[],
       arrayFilms:[],
       api_key:'?api_key=40b9be3bc2bac6086df4f70ef377f1b4',
-      valueQuery:''
+      
 
     } 
 
@@ -40,36 +40,34 @@ export default {
 
     valueText(InputText){
 
-      axios.get(`https://api.themoviedb.org/3/search/movie${this.api_key}&query=${this.valueQuery}`).then((response)=>{
+      console.log(InputText)
+      
+      if(InputText !== ''){
 
-      if(this.valueQuery == ''){
+        axios.get(`https://api.themoviedb.org/3/search/movie${this.api_key}&query=${InputText}`).then((response)=>{
 
-        this.arrayFilms = []
+          this.arrayFilms = response.data.results
+
+          console.log(this.arrayFilms);
+        
+        })
+
+        
+        axios.get(`https://api.themoviedb.org/3/search/tv${this.api_key}&query=${InputText}`).then((response)=>{
+        
+          this.arrayTvSeries = ''
+
+          this.arrayTvSeries = response.data.results
+
+          console.log(this.arrayTvSeries);
+
+        })
+
       }else{
 
-       this.arrayFilms = response.data.results
-
-      console.log(this.arrayFilms);
+        this.arrayFilms = []
       }
-
-    })
-
-    axios.get(`https://api.themoviedb.org/3/search/tv${this.api_key}&query=${this.valueQuery}`).then((response)=>{
-      
-      this.arrayTvSeries = ''
-
-      this.arrayTvSeries = response.data.results
-
-      console.log(this.arrayTvSeries);
-
-    })
-
-      this.valueQuery = InputText
-
-      console.log(this.valueQuery)
-      
-    }
-    
+    } 
   }
 }
 
