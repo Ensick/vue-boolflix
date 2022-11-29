@@ -1,7 +1,7 @@
 <template>
     <section>
 
-        <h2>Film</h2>
+        <h2 v-show="dataFilms.length > 0">Film</h2>
 
         <div class="cont-cards">
 

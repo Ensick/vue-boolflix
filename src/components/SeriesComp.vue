@@ -1,7 +1,7 @@
 <template>
     <section>
 
-        <h2>Serie Tv</h2>
+        <h2 v-show="dataSeries.length > 0">Serie Tv</h2>
 
         <div class="cont-cards">
 
