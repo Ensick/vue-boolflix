@@ -34,6 +34,8 @@
 
     section{
 
+        padding-top: 60px;
+        
         .cont-cards{
 
             width: 90%;
