@@ -30,8 +30,7 @@ export default {
       arrayTvSeries:[],
       arrayFilms:[],
       api_key:'?api_key=40b9be3bc2bac6086df4f70ef377f1b4',
-      
-
+    
     } 
 
   },

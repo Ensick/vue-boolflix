@@ -31,18 +31,24 @@
     width: 350px;
     aspect-ratio: 2/3;
     flex-shrink: 0;
+    position: relative;
 
     .card-text{
 
         padding: 20px;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
         height: 100%;
         color: white;
         display: none;
         font-size: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+
 
         h2,h3{
-            
+
             line-height: 35px;
             padding-bottom: 15px;
         }
@@ -53,10 +59,6 @@
         display: block;
     }
 
-    &:hover img{
-  
-        display: none; 
-    }
 
     img{
         display: block;
