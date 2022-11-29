@@ -2,7 +2,7 @@
   <div id="app">
 
     <HeaderComp @Text="valueText"/>
-    <MainComp :dataFilms = 'arrayFilms'/>
+    <MainComp :dataFilms = 'arrayFilms' :dataSeries = 'arrayTvSeries'/>
 
   </div>
 </template>
@@ -65,6 +65,7 @@ export default {
       }else{
 
         this.arrayFilms = []
+        this.arrayTvSeries = []
       }
     } 
   }

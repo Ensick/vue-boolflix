@@ -1,33 +1,31 @@
 <template>
     <section>
 
-        <h2>Film</h2>
+        <h2>Serie Tv</h2>
 
         <div class="cont-cards">
 
-            <CardComp v-for="(elem,index) in dataFilms" :key="index" :elem ="elem" :dataFilms = 'dataFilms'/>
-
+            <CardSeries v-for="(elem,index) in dataSeries" :key="index" :elem ="elem"/>
         </div>
         
     </section>
 </template>
 
 <script>
-    import CardComp from './CardComp.vue'
+
+    import CardSeries from './CardSeries.vue'
 
     export default {
+        name: 'SeriesComp',
 
-        name: 'FilmsComp',
+        components:{
 
-        components: {
-
-            CardComp,
-
+            CardSeries,
         },
 
-        props: {
+        props:{
 
-            dataFilms: Array
+            dataSeries: Array
         }
     }
 </script>
@@ -53,8 +51,6 @@
             display: flex;
             overflow-y: auto;
             padding-bottom: 5px;
-
         }
     }
-
 </style>
