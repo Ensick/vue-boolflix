@@ -5,7 +5,7 @@
         </div>
 
         <div>
-            <input type="text" placeholder="Cerca">
+            <input type="text" placeholder="Cerca" v-model="InputText" @keyup="$emit('Text', InputText)">
         </div>
     </header>
 </template>
@@ -13,8 +13,17 @@
 <script>
     export default {
         
-        name: 'HeaderComp'
+        name: 'HeaderComp',
+
+        data(){
+            return{
+
+                InputText:''
+            }
+        }
     }
+
+    
 </script>
 
 <style lang="scss" scoped>
