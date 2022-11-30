@@ -11,6 +11,7 @@
              <div class="cont-voto">
                 <span>Voto:</span>
                 <font-awesome-icon v-for="(elem,index) in this.splitVoto()" :key="index" icon="fa-solid fa-star"/>
+                <p>{{elem.overview}}</p>
             </div>
         </div>
     </div>
@@ -116,6 +117,7 @@
     aspect-ratio: 2/3;
     flex-shrink: 0;
     position: relative;
+    overflow-x: auto ;
 
     .card-text{
 
@@ -175,6 +177,12 @@
         .fa-star{
 
             color: rgb(255, 230, 0);
+        }
+
+        p{
+
+            line-height: 20px;
+            padding-top: 10px;
         }
     }
 
