@@ -35,6 +35,22 @@ export default {
 
   },
 
+  mounted(){
+
+    axios.get(`https://api.themoviedb.org/3/movie/top_rated${this.api_key}&language=en-US`).then((response)=>{
+
+      this.arrayFilms = response.data.results
+
+      })
+
+      axios.get(`https://api.themoviedb.org/3/tv/top_rated${this.api_key}&language=en-US`).then((response)=>{
+
+      this.arrayTvSeries = response.data.results
+
+      })
+
+  },
+
   methods:{
 
     valueText(InputText){
@@ -47,25 +63,32 @@ export default {
 
           this.arrayFilms = response.data.results
 
-          console.log(this.arrayFilms);
+          /* console.log(this.arrayFilms); */
         
         })
 
         
         axios.get(`https://api.themoviedb.org/3/search/tv${this.api_key}&query=${InputText}`).then((response)=>{
         
-          this.arrayTvSeries = ''
 
           this.arrayTvSeries = response.data.results
 
-          console.log(this.arrayTvSeries);
+          /* console.log(this.arrayTvSeries); */
+
+        })
+      }else if(InputText === ''){
+
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated${this.api_key}&language=en-US`).then((response)=>{
+
+        this.arrayFilms = response.data.results
 
         })
 
-      }else{
+        axios.get(`https://api.themoviedb.org/3/tv/top_rated${this.api_key}&language=en-US`).then((response)=>{
 
-        this.arrayFilms = []
-        this.arrayTvSeries = []
+        this.arrayTvSeries = response.data.results
+
+        })
       }
     } 
   }

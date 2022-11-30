@@ -6,7 +6,7 @@
             <h2>Titolo: {{elem.name}}</h2>
             <div class="cont-bandiera">
                 <h3>Lingua Orginale:</h3>
-                <img class="bandiera-lingua" :src="`https://www.countryflagicons.com/FLAT/32/${this.linguaTrasformata.toUpperCase()}.png`" alt="img">
+                <img class="bandiera-lingua" :src="`https://www.countryflagicons.com/FLAT/32/${elem.original_language.toUpperCase()}.png`" alt="img">
             </div>
             <div class="cont-voto">
                 <span>Voto:</span>
@@ -28,70 +28,80 @@
         data(){
             return{
 
-                linguaTrasformata: '',
                 votoStelle:''
             }
         },
+   
         beforeUpdate(){
 
-            if(this.elem.original_language === "en") {
+            this.cambioBandiera(this.elem)
+        },
+        mounted(){
 
-               return this.linguaTrasformata = "us";
-
-            } else if (this.elem.original_language === "ja") {
-
-                return this.linguaTrasformata = "jp";
-
-            } else if (this.elem.original_language === "hi") {
-
-               return this.linguaTrasformata = "in";
-
-            }else if (this.elem.original_language === "cs") {
-
-                return this.linguaTrasformata = "cz";
-
-            } else if (this.elem.original_language === "ko") {
-                
-                return this.linguaTrasformata = "kr";
-
-            } else if (this.elem.original_language === "sv") {
-
-                return this.linguaTrasformata = "ch";
-
-            } else if (this.elem.original_language === "fa") {
-
-                return this.linguaTrasformata = "ir";
-
-            } else if (this.elem.original_language === "zh") {
-
-                return this.linguaTrasformata = "cn";
-
-            } else if (this.elem.original_language === "he") {
-
-                return this.linguaTrasformata = "il";
-
-            } else if (this.elem.original_language === "te") {
-
-                this.linguaTrasformata = "in";
-
-            } else if (this.elem.original_language === "ur") {
-
-                return this.linguaTrasformata = "pk";
-
-            } else if (this.elem.original_language === "sq") {
-
-                return this.linguaTrasformata = "al";
-
-            } else if (this.elem.original_language === "da") {
-
-                return this.linguaTrasformata = "dk";
-
-            }else{
-
-                return this.linguaTrasformata = this.elem.original_language
-            }
+             this.cambioBandiera(this.elem)
         },
         methods:{
+
+            cambioBandiera(elem){
+
+                if(elem.original_language === "en"){
+
+                    elem.original_language = "us";
+
+                }else if (elem.original_language === "ja"){
+
+                    elem.original_language = "jp";
+
+                }else if (elem.original_language === "hi"){
+
+                    elem.original_language = "in";
+
+                }else if (elem.original_language === "cs") {
+
+                    elem.original_language = "cz";
+
+                } else if (elem.original_language === "ko") {
+                    
+                    elem.original_language = "kr";
+
+                } else if (elem.original_language === "sv") {
+
+                    elem.original_language = "ch";
+
+                } else if (elem.original_language === "fa") {
+
+                    elem.original_language = "ir";
+
+                } else if (elem.original_language === "zh") {
+
+                    elem.original_language = "cn";
+
+                } else if (elem.original_language === "he") {
+
+                    elem.original_language = "il";
+
+                } else if (elem.original_language === "te") {
+
+                    elem.original_language = "in";
+
+                } else if (elem.original_language === "ur") {
+
+                    elem.original_language = "pk";
+
+                } else if (elem.original_language === "sq") {
+
+                    elem.original_language = "al";
+
+                } else if (elem.original_language === "da") {
+
+                    elem.original_language = "dk";
+
+                }else{
+
+                    elem.original_language
+                } 
+
+            },
 
             splitVoto(){
 
