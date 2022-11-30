@@ -6,9 +6,8 @@
             <h2>Titolo: {{elem.title}}</h2>
             <div class="cont-bandiera">
                 <h3>Lingua Orginale:</h3>
-                <img class="bandiera-lingua" :src="`https://www.countryflagicons.com/FLAT/32/${this.bandieraLingua.toUpperCase()}.png`" alt="img">
+                <img class="bandiera-lingua" :src="`https://www.countryflagicons.com/FLAT/32/${this.linguaTrasformata.toUpperCase()}.png`" alt="img">
             </div>
-            
             <h3>Voto: {{elem.vote_average}}</h3>
         </div>
     </div>
@@ -28,31 +27,68 @@
         data(){
             return{
 
-                bandieraLingua: this.elem.original_language
+                linguaTrasformata: ''
             }
         },
-        mounted(){
+        beforeUpdate(){
 
-            this.sovrascritturaLingua()
-        },
-        methods:{
+            if(this.elem.original_language === "en") {
 
-            sovrascritturaLingua(){
+               return this.linguaTrasformata = "us";
+
+            } else if (this.elem.original_language === "ja") {
+
+                return this.linguaTrasformata = "jp";
+
+            } else if (this.elem.original_language === "hi") {
+
+               return this.linguaTrasformata = "in";
+
+            }else if (this.elem.original_language === "cs") {
+
+                return this.linguaTrasformata = "cz";
+
+            } else if (this.elem.original_language === "ko") {
                 
-                if(this.bandieraLingua === "en") {
+                return this.linguaTrasformata = "kr";
 
-                    this.bandieraLingua = "us";
+            } else if (this.elem.original_language === "sv") {
 
-                } else if (this.bandieraLingua === "ja") {
+                return this.linguaTrasformata = "ch";
 
-                    this.bandieraLingua = "jp";
+            } else if (this.elem.original_language === "fa") {
 
-                } else if (this.bandieraLingua === "hi") {
+                return this.linguaTrasformata = "ir";
 
-                    this.bandieraLingua = "in";
-                }
+            } else if (this.elem.original_language === "zh") {
+
+                return this.linguaTrasformata = "cn";
+
+            } else if (this.elem.original_language === "he") {
+
+                return this.linguaTrasformata = "il";
+
+            } else if (this.elem.original_language === "te") {
+
+                this.linguaTrasformata = "in";
+
+            } else if (this.elem.original_language === "ur") {
+
+                return this.linguaTrasformata = "pk";
+
+            } else if (this.elem.original_language === "sq") {
+
+                return this.linguaTrasformata = "al";
+
+            } else if (this.elem.original_language === "da") {
+
+                return this.linguaTrasformata = "dk";
+
+            }else{
+
+                return this.linguaTrasformata = this.elem.original_language
             }
-        }
+        } 
     }
 </script>
 
