@@ -4,9 +4,7 @@
         <h2 v-show="dataFilms.length > 0">Film</h2>
 
         <div class="cont-cards">
-
             <CardComp v-for="(elem,index) in dataFilms" :key="index" :elem ="elem" :dataFilms = 'dataFilms'/>
-
         </div>
         
     </section>

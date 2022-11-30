@@ -4,7 +4,6 @@
         <h2 v-show="dataSeries.length > 0">Serie Tv</h2>
 
         <div class="cont-cards">
-
             <CardSeries v-for="(elem,index) in dataSeries" :key="index" :elem ="elem"/>
         </div>
         

@@ -11,6 +11,7 @@
             <div class="cont-voto">
                 <span>Voto:</span>
                 <font-awesome-icon v-for="(elem,index) in this.splitVoto()" :key="index" icon="fa-solid fa-star"/>
+                <font-awesome-icon v-for="(elem,index) in 5 - this.splitVoto()" :key="index + 5" icon="fa-regular fa-star"/>
                 <p>{{elem.overview}}</p>
             </div>
         </div>
@@ -28,7 +29,7 @@
         data(){
             return{
 
-                votoStelle:''
+                votoStelle:'',
             }
         },
    
@@ -191,6 +192,7 @@
             line-height: 20px;
             padding-top: 10px;
         }
+
     }
 }
 
