@@ -1,10 +1,14 @@
 <template>
     <div class="card">
-        <img :src="elem.poster_path == null ? 'https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1':`https://image.tmdb.org/t/p/w342/${elem.poster_path}`" alt="img"> 
+        <img class="img-poster" :src="elem.poster_path == null ? 'https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1':`https://image.tmdb.org/t/p/w342/${elem.poster_path}`" alt="img"> 
         <div class="card-text">
             <h2>Titolo Originale: {{elem.original_title}}</h2>
             <h2>Titolo: {{elem.title}}</h2>
-            <h3>Lingua Orginale: {{elem.original_language}}</h3>
+            <div class="cont-bandiera">
+                <h3>Lingua Orginale:</h3>
+                <img class="bandiera-lingua" :src="`https://www.countryflagicons.com/FLAT/32/${this.bandieraLingua.toUpperCase()}.png`" alt="img">
+            </div>
+            
             <h3>Voto: {{elem.vote_average}}</h3>
         </div>
     </div>
@@ -19,6 +23,35 @@
 
             dataFilms: Array,
             elem: Object
+        },
+
+        data(){
+            return{
+
+                bandieraLingua: this.elem.original_language
+            }
+        },
+        mounted(){
+
+            this.sovrascritturaLingua()
+        },
+        methods:{
+
+            sovrascritturaLingua(){
+                
+                if(this.bandieraLingua === "en") {
+
+                    this.bandieraLingua = "us";
+
+                } else if (this.bandieraLingua === "ja") {
+
+                    this.bandieraLingua = "jp";
+
+                } else if (this.bandieraLingua === "hi") {
+
+                    this.bandieraLingua = "in";
+                }
+            }
         }
     }
 </script>
@@ -58,15 +91,27 @@
 
         display: block;
     }
-
-
-    img{
+    
+    .img-poster{
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
     }  
+
+    .cont-bandiera h3{
+
+        display: inline;
+        padding-right: 10px;
+    }
+
+    .cont-bandiera img{
+
+        vertical-align: middle;
+        padding-bottom: 2px;
+    }
+
 }
 
 </style>
