@@ -8,7 +8,10 @@
                 <h3>Lingua Orginale:</h3>
                 <img class="bandiera-lingua" :src="`https://www.countryflagicons.com/FLAT/32/${this.linguaTrasformata.toUpperCase()}.png`" alt="img">
             </div>
-            <h3>Voto: {{elem.vote_average}}</h3>
+             <div class="cont-voto">
+                <span>Voto:</span>
+                <font-awesome-icon v-for="(elem,index) in this.splitVoto()" :key="index" icon="fa-solid fa-star"/>
+            </div>
         </div>
     </div>
 </template>
@@ -27,7 +30,8 @@
         data(){
             return{
 
-                linguaTrasformata: ''
+                linguaTrasformata: '',
+                votoStelle:'',
             }
         },
         beforeUpdate(){
@@ -88,7 +92,18 @@
 
                 return this.linguaTrasformata = this.elem.original_language
             }
-        } 
+        },
+         methods:{
+
+            splitVoto(){
+
+                this.votoStelle = parseInt(this.elem.vote_average/2)
+
+                return this.votoStelle
+                
+            }
+
+        }
     }
 </script>
 
@@ -146,6 +161,21 @@
 
         vertical-align: middle;
         padding-bottom: 2px;
+    }
+
+    .cont-voto{
+
+        span{
+
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding-right: 10px;
+        }
+
+        .fa-star{
+
+            color: rgb(255, 230, 0);
+        }
     }
 
 }

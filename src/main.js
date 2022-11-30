@@ -8,12 +8,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUserSecret, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons'
 /*Import icone regular */
-import { faFaceSmile } from '@fortawesome/free-regular-svg-icons'
+import { faFaceSmile, faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret,faFaceSmile,faStar)
+library.add(faUserSecret,faFaceSmile,faStarSolid,faStarRegular)
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
